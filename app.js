@@ -1,4 +1,8 @@
-
+const path = require('path')
+const express = require('express')
+const bodyParser = require('body-parser')
+const mongoConnect = require('./Util/Database').mongoConnect
+const app = express()
 
 app.set('view engine','ejs');
 app.set('views','Views')
