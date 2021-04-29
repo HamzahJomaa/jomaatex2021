@@ -1,7 +1,7 @@
 const Category = require('../Models/Category');
 const Subcategory = require('../Models/Subcategory');
 const Product = require("../Models/Product")
-
+const getGallery = require("../Util/helper").getGallery
 
 
 exports.Index = (req,res,next)=>{
@@ -26,11 +26,11 @@ exports.AddProduct = (req,res,next)=>{
 
 
 exports.PostAddProduct = (req,res,next)=>{
-
     
+
     Subcategory.findById(req.body.prodSubCategory)
     .then(subCat=>{
-        var new_Product = new Product(req.body.prodName,req.body.prodPrice,req.body.prodDesc,subCat,req.body.featured,req.body.gallery)
+        var new_Product = new Product(req.body.prodName,req.body.prodPrice,req.body.prodDesc,subCat,req.files[0]['filename'],getGallery(req.files))
         return new_Product.save()
     }).then(add_product=>{
         return res.redirect('back')

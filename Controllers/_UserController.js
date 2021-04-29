@@ -7,6 +7,7 @@ exports.AddUser = (req,res,next)=>{
 
 exports.PostAddUser = (req,res,next)=>{
   const fullname = req.body.Inputname
+  const username = req.body.Inputuser
   const Email = req.body.InputEmail1
   const Password = req.body.InputPassword1
   const ConfirmPassword = req.body.InputConfirmPassword1
@@ -19,7 +20,7 @@ exports.PostAddUser = (req,res,next)=>{
     }else{
       return bcrypt.hash(Password,12)
       .then(hashedPassword=>{
-        const new_user = new User(fullname,Email,hashedPassword)
+        const new_user = new User(fullname,username,Email,hashedPassword)
         return new_user.save()
       })
       .then(add_user=>{

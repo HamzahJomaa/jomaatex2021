@@ -3,8 +3,9 @@ const getDb = require('../Util/Database').getDb
 
 class User {
 
-constructor(fullname, email, password){
+constructor(fullname,_username, email, password){
     this.name = fullname
+    this.username = _username
     this.email = email
     this.password  = password
 }

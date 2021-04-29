@@ -3,6 +3,8 @@ const router = express.Router();
 const IndexController = require('../Controllers/_IndexController')
 const UserController = require('../Controllers/_UserController')
 const ProductController = require('../Controllers/_ProductController')
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 
 
