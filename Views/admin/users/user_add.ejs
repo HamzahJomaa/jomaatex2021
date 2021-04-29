@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Dashboard</title>
+
+        <%- include('../partials/css.ejs') %>
+
+    </head>
+
+    <body class="layout-default">
+
+        <div class="preloader"></div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <%- include('../partials/header-up.ejs') %>
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content">
+
+                <div class="mdk-drawer-layout js-mdk-drawer-layout"
+                     data-push
+                     data-responsive-width="992px">
+                    <div class="mdk-drawer-layout__content page">
+
+                        <div style="padding-bottom: calc(5.125rem / 2); position: relative; margin-bottom: 1.5rem;">
+                            <div class="bg-primary"
+                                 style="min-height: 150px;">
+                                <div class="d-flex align-items-end container-fluid page__container"
+                                     style="position: absolute; left: 0; right: 0; bottom: 0;">
+                                    <div class="avatar avatar-xl">
+                                        <img src="/admin/images/avatar/demi.png"
+                                             alt="avatar"
+                                             class="avatar-img rounded"
+                                             style="border: 2px solid white;">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid page__container">
+                            <div class="row">
+                                <div class="col-lg-5 card" >
+                                    <div class="col-lg-12 card-form__body card-body">
+                                        <form method="POST" action="/admin/users/add" >
+                                            <div class="form-group">
+                                                <label for="Inputname">Your Name:</label>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       id="Inputname"
+                                                       name="Inputname"
+                                                       placeholder="Full Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="InputEmail1">Your email:</label>
+                                                <input type="email"
+                                                       class="form-control"
+                                                       id="InputEmail1"
+                                                       name="InputEmail1"
+                                                       placeholder="Email Address">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="InputPassword1">Your password:</label>
+                                                <input type="password"
+                                                       class="form-control"
+                                                       id="InputPassword1"
+                                                       name="InputPassword1"
+                                                       placeholder="Enter your password ..">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="InputConfirmPassword1">Your password:</label>
+                                                <input type="password"
+                                                       class="form-control"
+                                                       id="InputConfirmPassword1"
+                                                       name = "InputConfirmPassword1"
+                                                       placeholder="Confirm Password">
+                                            </div>
+                                            <button type="submit"
+                                                    class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- // END drawer-layout__content -->
+
+                    <%- include('../partials/header-left.ejs') %>
+
+                </div>
+                <!-- // END drawer-layout -->
+
+            </div>
+            <!-- // END header-layout__content -->
+
+        </div>
+        <!-- // END header-layout -->
+
+
+
+        <%- include('../partials/js.ejs') %>
+
+
+    </body>
+
+</html>

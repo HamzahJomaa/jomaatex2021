@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Dashboard</title>
+
+        <%- include('../partials/css.ejs') %>
+
+    </head>
+
+    <body class="layout-default">
+
+        <div class="preloader"></div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <%- include('../partials/header-up.ejs') %>
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content">
+
+                <div class="mdk-drawer-layout js-mdk-drawer-layout"
+                     data-push
+                     data-responsive-width="992px">
+                    <div class="mdk-drawer-layout__content page">
+
+                        <div class="container-fluid page__heading-container">
+                            <div class="page__heading d-flex align-items-end">
+                                <div class="flex">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb mb-0">
+                                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="./">Products</a></li>
+                                            <li class="breadcrumb-item active"
+                                                aria-current="page">Add New Products</li>
+                                        </ol>
+                                    </nav>
+                                    <h1 class="m-0">Add New Product</h1>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="container-fluid page__container">
+                            <div class="card card-form">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-12 card-form__body card-body">
+                                        <form method="POST" action="addProduct">
+
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <div class="form-group">
+                                                        <label for="prodName">Product Name</label>
+                                                        <input id="prodName"
+                                                                type="text"
+                                                                class="form-control"
+                                                                placeholder="Product Name"
+                                                                name="prodName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-2">
+                                                    <div class="form-group">
+                                                        <label for="prodPrice">Product Price</label>
+                                                        <input id="prodPrice"
+                                                                type="text"
+                                                                class="form-control"
+                                                                placeholder="Product Price"
+                                                                name="prodPrice">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                    <label for="prodCategory">Category</label><br>
+                                                    <select id="prodCategory"
+                                                            class="custom-select"
+                                                            name="prodCategory">
+                                                            <% if (categories.length > 0) { 
+                                                                for (let category of categories) { %>
+                                                                    <option value="<%= category.id %>"><%= category.title %></option>
+                                                            <% }
+                                                        }%>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="prodSubCategory">SubCategory</label><br>
+                                                        <select id="prodSubCategory"
+                                                                class="custom-select"
+                                                                name="prodSubCategory">
+                                                                <% if (subcategories.length > 0) { 
+                                                                    for (let subcategory of subcategories) { %>
+                                                                        <option value="<%= subcategory.id %>"><%= subcategory.title %></option>
+                                                                    <% }
+                                                                }%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="prodSupplier">Supplier</label><br>
+                                                        <select id="prodSupplier"
+                                                                class="custom-select"
+                                                                name="prodSupplier">
+                                                                
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="desc">Bio / Description</label>
+                                                <textarea id="desc"
+                                                            rows="4"
+                                                            class="form-control"
+                                                            placeholder="Bio / description ..."></textarea>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="left-gallery col-6">
+                                                    <div class="form-group" >
+                                                        <label class="gallery" for="desc">Featured Image</label>
+                                                        <img class="gallery-input" src="/admin/images/account-add-photo.svg" alt="">
+
+                                                        <div id="myId" class="fallback">
+                                                            <input name="featured" type="file" id="#featuredInput"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="right-gallery col-6">
+                                                    <label class="gallery" for="desc">Gallery Images</label>
+                                                    <img class="gallery-input" src="/admin/images/account-add-photo.svg" alt="">
+                                                    <div class="form-group">
+                                                        <div id="myId" class="fallback">
+                                                            <input name="gallery" type="file" id="galleryInput" multiple />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="subscribe">Subscribe to newsletter</label><br>
+                                                <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                    <input checked=""
+                                                            type="checkbox"
+                                                            id="subscribe"
+                                                            class="custom-control-input">
+                                                    <label class="custom-control-label"
+                                                            for="subscribe">Yes</label>
+                                                </div>
+                                                <label for="subscribe"
+                                                        class="mb-0">Yes</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button type="button" class="btn btn-block btn-warning">Clear</button>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="submit" class="btn btn-block btn-primary">Add Product</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- // END drawer-layout__content -->
+
+                    <%- include('../partials/header-left.ejs') %>
+
+                </div>
+                <!-- // END drawer-layout -->
+
+            </div>
+            <!-- // END header-layout__content -->
+
+        </div>
+        <!-- // END header-layout -->
+
+
+
+        <%- include('../partials/js.ejs') %>
+
+
+    </body>
+
+
+    <% var sub=JSON.stringify(subcategories) %>
+    <script>
+        
+        $(document).ready(()=>{
+
+            $("#prodCategory").change(()=>{
+                $.ajax({
+                    type: "POST",
+                    url: "getSubcategory/" + $("#prodCategory :selected").val(),
+                    success: (data)=>{
+                        $("#prodSubCategory").find('option').remove().end()
+                        data.forEach(sub => {
+                            $("#prodSubCategory").append('<option value="'+ sub.id +'">'+sub.title+"</option>")
+                        });    
+                    },
+                    error: (err)=>{
+                        throw err
+                    }
+                })
+            })
+
+            
+        })
+    </script>
+
+
+</html>
