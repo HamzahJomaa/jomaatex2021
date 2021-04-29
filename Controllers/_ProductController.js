@@ -2,6 +2,8 @@ const Category = require('../Models/Category');
 const Subcategory = require('../Models/Subcategory');
 const Product = require("../Models/Product")
 
+
+
 exports.Index = (req,res,next)=>{
     res.render("admin/products/index")
 }
@@ -28,12 +30,15 @@ exports.PostAddProduct = (req,res,next)=>{
     
     Subcategory.findById(req.body.prodSubCategory)
     .then(subCat=>{
-        var new_Product = new Product(req.body.prodName,req.body.prodPrice,subCat,req.file.featured)
-        return new_Product.getProduct()
+        var new_Product = new Product(req.body.prodName,req.body.prodPrice,req.body.prodDesc,subCat,req.body.featured,req.body.gallery)
+        return new_Product.save()
+    }).then(add_product=>{
+        return res.redirect('back')
     })
     .catch(err=>{
         throw err
     })
+    
     
 }
 
