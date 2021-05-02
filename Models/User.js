@@ -26,12 +26,12 @@ save(){
         }); 
 }
 
-static getUserbyEmail(_email){
+static getUserbyUsername(_username){
     const db = getDb();
     return db
         .collection('users')
         .findOne({
-            email:_email
+            username:_username
         })
         .then(user => {
             if (user){

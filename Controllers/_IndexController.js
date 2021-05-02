@@ -1,3 +1,9 @@
 exports.Index = (req,res,next)=>{
-    res.render("admin/index")
+    if(req.session.isLoggedIn == null){
+        res.render("admin/login")
+    }else{
+        res.render("admin/index")
+    }
+    
+
 }

@@ -3,8 +3,8 @@ const router = express.Router();
 const IndexController = require('../Controllers/_IndexController')
 const UserController = require('../Controllers/_UserController')
 const ProductController = require('../Controllers/_ProductController')
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+const AuthController = require('../Controllers/_AuthController')
+
 
 
 
@@ -21,6 +21,9 @@ router.post("/products/addProduct",ProductController.PostAddProduct)
 
 router.post("/users/add",UserController.PostAddUser)
 
+
+router.post("/login",AuthController.PostLogin)
+router.get("/login",AuthController.Index)
 router.get("/",IndexController.Index)
 
 module.exports = router;

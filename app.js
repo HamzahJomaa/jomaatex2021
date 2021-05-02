@@ -6,6 +6,8 @@ const app = express()
 const multer = require("multer")
 const getFileName = require("./Util/helper").getFileName
 
+const session = require("express-session")
+
 app.set('view engine','ejs');
 app.set('views','Views')
 
@@ -26,7 +28,7 @@ const fileStorage = multer.diskStorage({
 app.use(multer({storage:fileStorage}).any("gallery","featured"))
 app.use(bodyParser.urlencoded({extend: false}))
 app.use(express.static(path.join(__dirname,'public')))
-
+app.use(session({secret:'my secret',resave: false,saveUninitialized: false,}))
 
 app.use('/admin/',adminRoutes)
 app.use(frontRoutes)

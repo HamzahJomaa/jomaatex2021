@@ -2,7 +2,8 @@ const User = require('../Models/User');
 var bcrypt = require('bcryptjs');
 
 exports.AddUser = (req,res,next)=>{
-  res.render("admin/users/user_add")
+       
+res.render("admin/users/user_add")
 }
 
 exports.PostAddUser = (req,res,next)=>{

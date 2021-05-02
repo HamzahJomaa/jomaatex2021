@@ -5,23 +5,31 @@ const getGallery = require("../Util/helper").getGallery
 
 
 exports.Index = (req,res,next)=>{
+    if(!req.session.isLoggedIn){
+        return res.redirect("../login")
+    }        
     res.render("admin/products/index")
 }
 
 exports.AddProduct = (req,res,next)=>{
-    Category.fetchAll()
-    .then(_categroy => {
-        Subcategory.fetchAll()
-        .then(_subcategroy => {
-            res.render("admin/products/add",{categories:_categroy,subcategories:_subcategroy})
+    if(req.session.isLoggedIn == null){
+        res.redirect("/admin/login")
+    }else{
+        Category.fetchAll()
+        .then(_categroy => {
+            Subcategory.fetchAll()
+            .then(_subcategroy => {
+                res.render("admin/products/add",{categories:_categroy,subcategories:_subcategroy})
+            })
+            .catch(err=>{
+                throw err
+            })
         })
         .catch(err=>{
             throw err
         })
-    })
-    .catch(err=>{
-        throw err
-    })
+    }
+    
 }
 
 

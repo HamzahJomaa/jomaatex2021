@@ -5,3 +5,8 @@ label.gallery{
 img.gallery-input{
     margin-bottom: 15px;
 }
+
+.brown{
+    background-color: var(--jomaatex-brown) !important;
+    border-color: var(--jomaatex-brown) !important;
+}

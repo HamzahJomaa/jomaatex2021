@@ -19,7 +19,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #6774DF;
+  --primary: #4F3023;
   --secondary: #6c757d;
   --success: #7DC668;
   --info: #5dd2bc;
@@ -40,6 +40,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
+  --jomaatex-brown: #4F3023;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -2424,7 +2425,7 @@ pre code {
 }
 [dir] .form-control:focus {
   background-color: #FAFBFE;
-  border-color: #6774DF;
+  border-color: #4F3023;
   box-shadow: inset 0 1px 2px 0 rgba(66, 71, 112, 0.12), 0 0 0 0.2rem rgba(103, 116, 223, 0.25);
 }
 .form-control::-moz-placeholder {
@@ -3044,16 +3045,16 @@ fieldset:disabled a.btn {
 }
 
 [dir] .btn-primary {
-  background-color: #6774DF;
-  border-color: #6774DF;
+  background-color: #4F3023;
+  border-color: #4F3023;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .btn-primary:hover {
   color: #fff;
 }
 [dir] .btn-primary:hover {
-  background-color: #4757d8;
-  border-color: #3d4dd6;
+  background-color: rgba(79, 48, 35, 0.60)  !important;
+  border-color: rgba(79, 48, 35, 0.60) !important;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
